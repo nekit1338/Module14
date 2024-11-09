@@ -10,7 +10,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 api = ""
 
 formula_vesa = "10 х вес (кг) + 6,25 x рост (см) – 5 х возраст (г) + 5"
-get_buying_list_text = "Название: {} | Описание: описание {} | Цена: {}"
+get_buying_list_text = "Название: {} | Описание: {} | Цена: {}"
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=api)
@@ -74,10 +74,10 @@ async def start(message):
 @dp.message_handler(text="Купить")
 async def get_buying_list(message):
     products = [
-        {'name': 'Product 1', 'description': '1', 'price': 100, 'url': "http://bit.ly/4flwaAo"},
-        {'name': 'Product 2', 'description': '2', 'price': 200, 'url': "https://bit.ly/3UIk1NP"},
-        {'name': 'Product 3', 'description': '3', 'price': 300, 'url': "https://bit.ly/3UIk6RD"},
-        {'name': 'Product 4', 'description': '4', 'price': 400, 'url': "https://bit.ly/3CezWgj"}
+        {'name': 'Помидоры', 'description': 'Банка с помидорами', 'price': 100, 'url': "http://bit.ly/4flwaAo"},
+        {'name': 'Огурцы', 'description': 'Банка с огурцами', 'price': 200, 'url': "https://bit.ly/3UIk1NP"},
+        {'name': 'Смесь Амосова', 'description': 'Витаминный комплекс - смесь Амосова', 'price': 300, 'url': "https://bit.ly/3UIk6RD"},
+        {'name': 'Икра', 'description': 'Банка с икрой', 'price': 400, 'url': "https://bit.ly/3CezWgj"}
     ]
     for product in products:
         await message.answer(get_buying_list_text.format(product['name'], product['description'], product['price']))
